@@ -4,8 +4,17 @@ export const useApistore = defineStore("api", {
   state: () => ({
     postData: [],
     postLoad: false,
+    user: null,
   }),
   actions: {
+    setUser(user) {
+      this.user = user;
+    },
+
+    logout() {
+      this.user = null;
+    },
+
     async posts() {
       try {
         this.postLoad = true;

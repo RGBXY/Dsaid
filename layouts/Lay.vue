@@ -37,19 +37,22 @@
           <p class="font-semibold text-sm">See More Topics</p>
         </div>
       </div>
-      <div class="h-11 px-3 rounded-lg absolute bottom-5 left-0 flex items-center justify-between w-full">
-        <div class="flex items-center gap-3">
-          <img class="w-8 h-8 rounded-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSllWfbNNOBU9FDj5S19JluiU2ttdZ3-Z29w&s" alt="" />
-          <p class="font-semibold text-sm">Slim Shady</p>
-        </div>
-        <PhosphorIconDotsThreeCircle class="text-lg" />
+      <div class="h-11 px-3 absolute bottom-5 left-0 flex items-center justify-center w-full">
+        <button @click="method.modalProfileFnc" class="flex relative items-center justify-between w-full rounded-lg hover:bg-slate-200 px-3 h-full">
+          <div class="flex items-center gap-3">
+            <img class="w-8 h-8 rounded-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSllWfbNNOBU9FDj5S19JluiU2ttdZ3-Z29w&s" alt="" />
+            <p class="font-semibold text-sm">Slim Shady</p>
+          </div>
+          <PhosphorIconDotsThreeCircle class="text-lg" />
+          <UiModalProfile />
+        </button>
       </div>
     </div>
     <slot />
     <div class="sticky w-[25%] p-3 left-0 top-0 h-screen bg-white border-l border-gray-200">
       <div class="flex items-center gap-3 mb-4 bg-slate-100 rounded-full h-10 px-4 border">
-        <PhosphorIconMagnifyingGlass class="text-slate-500"/>
-        <input type="text" placeholder="Search" class="w-full bg-transparent outline-none " />
+        <PhosphorIconMagnifyingGlass class="text-slate-500" />
+        <input type="text" placeholder="Search" class="w-full bg-transparent outline-none" />
       </div>
       <div class="border-[1.5px] border-gray-200 rounded-lg px-4 py-3">
         <h1 class="text-xl font-bold mb-5">Who to Follow</h1>
@@ -89,4 +92,6 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const method = useMethodstore();
+</script>

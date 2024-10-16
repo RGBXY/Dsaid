@@ -22,4 +22,9 @@ import Lay from "~/layouts/Lay.vue";
 
 const method = useMethodstore();
 const api = useApistore();
+const user = useSupabaseUser();
+
+definePageMeta({
+  middleware: "auth",
+});
 </script>
