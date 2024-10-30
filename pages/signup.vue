@@ -36,6 +36,14 @@ const error = ref(false);
 const user = useSupabaseUser();
 const method = useMethodstore();
 
+onMounted(() => {
+  watchEffect(() => {
+    if (user.value) {
+      navigateTo("/");
+    }
+  });
+});
+
 const signUp = async () => {
   try {
     const { user, error } = await supabase.auth.signUp({
@@ -46,9 +54,9 @@ const signUp = async () => {
     if (error) {
       console.error("Sign-up error:", error.message);
       method.notifFnc(error.message);
+    } else {
+      method.notifFnc("Berhasil sign up silahkan perika email");
     }
-
-    method.notifFnc("Berhasil sign up silahkan perika email");
 
     console.log("User signed up:", user);
     // Arahkan pengguna untuk memverifikasi email jika diperlukan
@@ -56,12 +64,4 @@ const signUp = async () => {
     console.error("Unexpected error during sign-up:", err);
   }
 };
-
-onMounted(() => {
-  watchEffect(() => {
-    if (user.value) {
-      navigateTo("/");
-    }
-  });
-});
 </script>

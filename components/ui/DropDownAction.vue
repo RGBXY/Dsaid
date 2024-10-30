@@ -4,11 +4,12 @@
       <PhosphorIconNotePencil class="" />
       <p class="text-sm">Edit</p>
     </button>
-    <ModalUpdatePost :datas="data" v-if="dataPost.id === method.modalUpdateId" />
-    <button @click="api.deletePost(dataPost.id)" class="p-2 hover:bg-slate-200 flex items-center justify-center gap-1 text-red-600 font-semibold">
+    <ModalUpdatePost :datas="data" />
+    <button @click="method.modalAlertFnc" class="p-2 hover:bg-slate-200 flex items-center justify-center gap-1 text-red-600 font-semibold">
       <PhosphorIconTrash class="" />
       <p class="text-sm">Delete</p>
     </button>
+    <ModalAlert :dataPostId="dataPost.id" />
   </div>
 </template>
 

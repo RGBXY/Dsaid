@@ -7,6 +7,7 @@ export const useMethodstore = defineStore("method", {
     modalActStat: false,
     modalProfileStat: false,
     modalUpdateStat: false,
+    modalAlertStat: false,
     modalActId: 0,
     modalUpdateId: 0,
     notifData: null,
@@ -14,6 +15,12 @@ export const useMethodstore = defineStore("method", {
   actions: {
     modalFnc() {
       this.modalStat = !this.modalStat;
+
+      if (this.modalStat === true) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflowY = "auto";
+      }
     },
     modalProfileFnc() {
       this.modalProfileStat = !this.modalProfileStat;
@@ -25,6 +32,12 @@ export const useMethodstore = defineStore("method", {
     modalUpdateFnc(id) {
       this.modalUpdateStat = !this.modalUpdateStat;
       this.modalUpdateId = id;
+      document.body.style.overflow = "hidden";
+    },
+    modalUpdateClose() {
+      this.modalUpdateStat = false;
+      this.modalActStat = false;
+      document.body.style.overflowY = "auto";
     },
     notifFnc(data) {
       this.notifStat = true;
@@ -32,6 +45,15 @@ export const useMethodstore = defineStore("method", {
     },
     notifFncClose() {
       this.notifStat = false;
+    },
+    modalAlertFnc() {
+      this.modalAlertStat = true;
+      document.body.style.overflow = "hidden";
+    },
+    modalAlertClose() {
+      this.modalAlertStat = false;
+      document.body.style.overflowY = "auto";
+      this.modalActStat = false;
     },
   },
 });

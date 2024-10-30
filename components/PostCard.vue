@@ -14,7 +14,7 @@
           <button @click="method.modalActFnc(post.id)">
             <PhosphorIconDotsThree class="text-3xl text-slate-500" />
           </button>
-          <UiModalAction :dataPost="post" v-if="post.id === method.modalActId" />
+          <UiDropDownAction :dataPost="post" v-if="post.id === method.modalActId" />
         </div>
       </div>
     </div>

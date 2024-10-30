@@ -44,7 +44,7 @@
             <p class="font-semibold text-sm">Slim Shady</p>
           </div>
           <PhosphorIconDotsThreeCircle class="text-lg" />
-          <UiModalProfile />
+          <UiDropDownProfile />
         </button>
       </div>
     </div>
